@@ -2,10 +2,12 @@
   "name": "library-management-api-with-express",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only src/app/server.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+ "scripts": {
+  "dev": "ts-node-dev --respawn --transpile-only src/app/server.ts",
+  "build": "tsc",
+  "start": "node dist/app/server.js",
+  "test": "echo \"Error: no test specified\" && exit 1"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
