@@ -7,5 +7,7 @@ export interface ILibrary{
     isbn:string,
     description:string,
     copies:number,
-    available:true
+    available:true,
+    createdAt?: Date;  
+   updatedAt?: Date; 
 }
