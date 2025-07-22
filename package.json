@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
  "scripts": {
-  "dev": "ts-node-dev --respawn --transpile-only ./dist/app/app/server.js",
+  "dev": "ts-node-dev --respawn --transpile-only ./src/app/app/server.ts",
   "build": "tsc",
   "lint":"npx eslint .",
   "lint:fix":"npx eslint . --fix",
