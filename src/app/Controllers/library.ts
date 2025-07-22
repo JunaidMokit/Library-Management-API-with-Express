@@ -61,10 +61,32 @@ libraryRouter.get('/books/:bookId',async(req:Request,res:Response)=>{
 
 })
 
-libraryRouter.get('/',(req:Request,res:Response)=>{
-    res.send('Welcome to our library app');
+libraryRouter.patch('/books/:bookId',async(req:Request,res:Response)=>{
+    const bookId=req.params.bookId;
+    const updateBody=req.body;
+    const book=await Library.findByIdAndUpdate(bookId,updateBody)
+
+    res.status(201).json({
+        success:true,
+        message:"Book updated successfully",
+        data:book
+    })
+
 
 })
+
+libraryRouter.delete('/books/:bookId',async(req:Request,res:Response)=>{
+   const bookId=req.params.bookId;
+   const book=await Library.findByIdAndDelete(bookId);
+   res.status(201).json({
+        success:true,
+        message:"Book deleted successfully",
+        data:null
+    })
+
+
+})
+
 
 libraryRouter.get('/',(req:Request,res:Response)=>{
     res.send('Welcome to our library app');
