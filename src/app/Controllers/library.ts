@@ -60,7 +60,7 @@ libraryRouter.get('/books', async (req: Request, res: Response) => {
 
     const query: any = {};
     if (filter) {
-      query.genre = filter.toUpperCase(); // FANTASY, SCIENCE, etc.
+      query.genre = filter.toUpperCase(); 
     }
 
     const data = await Library.find(query)
@@ -161,7 +161,7 @@ libraryRouter.get('/borrow', async (req: Request, res: Response) => {
       },
       {
         $lookup: {
-          from: "libraries", //  Collection name (always lowercase plural of model)
+          from: "libraries", 
           localField: "_id",
           foreignField: "_id",
           as: "bookDetails"
@@ -200,6 +200,6 @@ libraryRouter.get('/borrow', async (req: Request, res: Response) => {
 
 
 libraryRouter.get('/',(req:Request,res:Response)=>{
-    res.send('Welcome to our library app');
+    res.send('Welcome to our library apps');
 
 })
