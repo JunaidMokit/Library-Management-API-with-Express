@@ -1,6 +1,12 @@
 import {Server} from 'http'
 import mongoose from 'mongoose';
 import app from './app';
+
+
+
+
+
+
 // DNS2bnld2TkJQkqU
 //mongodb+srv://JunaidRahman:<db_password>@cluster0.hturdn4.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 let server:Server;

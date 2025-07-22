@@ -1,6 +1,8 @@
 import express, { Application, Request, Response } from 'express'
-import { libraryRouter } from './Controllers/library';
-import { globalErrorHandler } from './error/error.middleware';
+import { libraryRouter } from './src/app/Controllers/library';
+import { globalErrorHandler } from './src/app/error/error.middleware';
+// import { libraryRouter } from './Controllers/library';
+// import { globalErrorHandler } from './error/error.middleware';
 
 const app:Application=express()
 
