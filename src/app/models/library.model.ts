@@ -1,5 +1,5 @@
 import { model, Schema } from "mongoose";
-import { ILibrary } from "../Interface/library.interface";
+import { ILibrary, ILibraryDocument } from "../Interface/library.interface";
 //   title:string,
 //     author:string,
 //     genre:string,
@@ -8,7 +8,7 @@ import { ILibrary } from "../Interface/library.interface";
 //     copies:number,
 //     available:true
 
-const librarySchema=new Schema<ILibrary>({
+const librarySchema=new Schema<ILibraryDocument>({
     title:{
         type:String,
         required:true,
@@ -36,6 +36,7 @@ const librarySchema=new Schema<ILibrary>({
     available:
     {
         type:Boolean,
+        required:true,
         default:true
     },
     createdAt:{
@@ -52,5 +53,14 @@ const librarySchema=new Schema<ILibrary>({
     timestamps:true
 }
 )
-
-export const Library=model("Library",librarySchema)
+// librarySchema.methods.updateAvailability = function (this: ILibrary) {
+//   if (this.copies <= 0) {
+//         this.available = false;
+//   } else {
+//     this.available = true;
+//   }
+// };
+librarySchema.methods.updateAvailability = function (this: ILibraryDocument) {
+  this.available = this.copies > 0;
+};
+export const Library=model<ILibraryDocument>("Library",librarySchema)

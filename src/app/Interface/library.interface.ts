@@ -1,3 +1,4 @@
+import { Model, Document } from "mongoose";
 
 
 export interface ILibrary{
@@ -7,7 +8,11 @@ export interface ILibrary{
     isbn:string,
     description:string,
     copies:number,
-    available:true,
+    available:boolean,
     createdAt?: Date;  
    updatedAt?: Date; 
+}
+
+export interface ILibraryDocument extends ILibrary, Document {
+  updateAvailability(): void;
 }
